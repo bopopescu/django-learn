@@ -1,0 +1,62 @@
+{%extends "../index.html"%}
+
+{%block sidebarmenu%}
+{%for link,name in nav%}
+<li class="nav-item has-treeview">
+  <a href="{{link}}" class="nav-link">
+    <i class="far fa-circle nav-icon"></i>
+    <p>
+      {{name}}
+    </p>
+  </a>
+</li>
+{%endfor%}
+
+{%endblock sidebarmenu%}
+
+{%block header%}
+{{judul}}
+{%endblock header%}
+
+
+{%block content%}
+<div class="row">
+  <div class="col-12">
+    <div class="card">
+      <div class="card-body table-responsive p-0" style="height: 500px;">
+        <table class="table table-head-fixed text-nowrap table-bordered table-hover">
+          <thead>
+            <tr>
+              <th>ID Ikan</th>
+              <th>Tanggal Masuk</th>
+              <th>Jenis Ikan</th>
+              <th>Juragan</th>
+              <th>Berat</th>
+              <th>Harga per Kg</th>
+              <th>Area</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody>
+            {%for x in ikan%}
+            <tr>
+              <td>{{x.id}}</td>
+              <td>{{x.tanggal_masuk}}</td>
+              <td>{{x.id_harga.jenis_ikan}}</td>
+              <td>{{x.juragan}}</td>
+              <td>{{x.berat}}</td>
+              <td>{{x.id_harga.harga_per_kg}}</td>
+              <td>{{x.id_area.area_ikan}}</td>
+              <td><a href="" class="btn btn-default btn-rounded" >Ubah</a></td>
+            </tr>
+            {%endfor%}
+          </tbody>
+        </table>
+      </div>
+      <!-- /.card-body -->
+    </div>
+    <!-- /.card -->
+  </div>
+</div>
+<!-- /.row -->
+{%endblock content%}
